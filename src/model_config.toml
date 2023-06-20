@@ -1,0 +1,64 @@
+features=['merchant', 'category', 'amt', 'gender', 'city', 'state', 'city_pop',
+       'job', 'trans_week', 'trans_month', 'mmi_num', 'bank_num', 'age_cardholder']
+target="is_fraud"
+
+test_size=0.2
+seed_num = 0
+
+best_model_configs = ['best_xgb']
+
+
+# default models
+[default_dt]
+criterion='gini'
+splitter = 'best'
+max_depth = 10
+min_samples_split = 2
+min_samples_leaf = 1
+max_leaf_nodes = 10
+random_state = 0
+min_weight_fraction_leaf = 0
+min_impurity_decrease = 0
+
+[default_rf]
+n_estimators = 100
+criterion = 'gini'
+max_depth = 0
+min_samples_split = 2
+min_samples_leaf = 1
+min_weight_fraction_leaf = 0.0
+max_features = 'sqrt'
+max_leaf_nodes = 0
+min_impurity_decrease = 0.0
+bootstrap = true
+oob_score = true
+warm_start = false
+ccp_alpha = 0.0
+max_samples = 0
+
+# best models based on f1 score
+[best_dt]
+criterion='gini'
+class_weight = 'balanced'
+max_features = 'log2'
+max_depth = 10000
+min_samples_split = 100
+min_samples_leaf = 5
+
+[best_knn]
+algorithm = 'ball_tree'
+n_neighbors = 10
+p = 1
+weights = 'distance'
+
+[best_rf]
+criterion = 'entropy'
+max_depth = 200
+max_features = 0.5
+n_estimators = 100
+
+[best_xgb]
+booster = 'gbtree'
+learning_rate = 0.1
+max_delta_step = 1
+min_child_weight = 1

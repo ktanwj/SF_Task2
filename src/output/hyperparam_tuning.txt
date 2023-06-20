@@ -1,0 +1,20 @@
+ 
+!code abstracted from https://github.com/achyutb6/grid-search-cv/blob/master/SciKitLab2.py
+I included a portion of the grid search cv code from the above github link and added my own hyperparameters to tune.
+-------------------------------------------------------------------------------------------
+This script would ingest the processed data and perform grid-search-cv based on the tuned_parameters defined. 
+
+I will be performing hyperparameter tuning on 4 different algorithm:
+1. Decision tree
+2. KNeighbours
+3. RandomForest
+4. XGBoost
+
+The best performing hyperparameters will then be pasted in the model_config.toml for further use.
+
+Note: By running python ./model_tuning.py > ../../output/hyperparam_tuning.txt on terminal, the output would be saved under the output folder named: hyperparam_tuning.txt.
+Perhaps future iteration could include a method that would do so automatically.
+ 
+################   DecisionTreeClassifier   ################
+# Tuning hyper-parameters for accuracy
+
